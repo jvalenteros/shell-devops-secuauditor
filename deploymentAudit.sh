@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Task 1: Write a Bash script function that iterates through all directories in the deployment directory and counts how many files exist of each type, such as .sh, .conf, .php, .js, .css, .bak, .tmp, and so on. Finally, print a summary table showing the counts for each file type.  Save the output in task1Output.txt. [ 15 Points ]
-
 TARGET_DIR="deployment_dir"
 ZIP_FILE="deployment_dir.zip"
 
@@ -36,8 +34,6 @@ function audit_file_type() {
 	echo "Task 1 complete. Saved to task1Output.txt"
 }
 
-# Task 2: Write a Bash script function that scans all file names for suspicious patterns. Specifically, flag any files whose names contain terms like debug, test, or temp, or which have extensions such as .bak, .old, or .tmp. And then print warnings such as: WARNING: Suspicious file detected - tmp/build.bak. Save the output in task2Output.txt.
-
 function audit_sus_files() {
 	echo "Scanning for suspicious files..." > task2Output.txt 
 
@@ -51,8 +47,6 @@ function audit_sus_files() {
 
 		cat task2Output.txt
 	}
-
-	# Task 3: Write a Bash script function that scans all .sh files in the deployment directory to detect the presence of potentially dangerous commands like rm -rf, scp, curl, or sudo. If any of these commands are found, print a report in the format: cleanup.sh: uses dangerous command 'rm -rf'. Save the output in task3Output.txt.
 
 	function audit_danger_commands() {
 		echo "Scanning .sh files for dangerous commands (rm -rf, scp, curl, sudo...)" > task3Output.txt
@@ -70,8 +64,6 @@ function audit_sus_files() {
 		done
 	done
 }
-
-# Task 4: Write a Bash script function that scans all the contents of logs/access.log and logs/error.log to identify traffic and error patterns. Count how many unique IP addresses accessed the server, determine the top 3 most visited pages, and extract any "File does not exist" entries. Save the output in task4Output.txt
 
 function audit_logs() {
 	echo "Scanning logs" > task4Output.txt
@@ -100,8 +92,6 @@ function audit_logs() {
 
 	cat task4Output.txt
 }
-
-# Task 5: Write a Bash script function that searches through configuration files such as .env, .conf, .json, and .pem for signs of hardcoded secrets or credentials. Look for keywords such as SECRET, PASSWORD, KEY, or PRIVATE within the file content. Then print any lines that contain these sensitive terms, along with the filename. Save the output in task5Output.txt.
 
 function audit_secrets() {
 	echo "Scanning for secret" > task5Output.txt
